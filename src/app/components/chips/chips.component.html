@@ -1,8 +1,12 @@
-<mat-chip class="chip" disableRipple>
-  <span>{{ text! }}</span
-  ><mat-icon
-  class="chip__cancel-icon"
-  (click)="this.remove.emit(text)"
->cancel</mat-icon
->
+<!--Prostrza wersja w porównaniu z przykładem z dokumentacji material-a-->
+<mat-chip class="chip chip-element" disableRipple>
+  <div class="chip__container">
+      <span class="chip__container-text">{{ text! }}</span
+      >
+    <mat-icon
+      class="chip__cancel-icon"
+      (click)="this.remove.emit(text)"
+    >{{ 'cancel' }}
+    </mat-icon>
+  </div>
 </mat-chip>
