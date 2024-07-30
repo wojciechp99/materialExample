@@ -45,25 +45,26 @@ export class BaseComponent {
   ];
   chips: string[] = ['Banana', 'Apple', 'Carrot']
 
-  emitSomething(value: string) {
+  emitSomething(value: string):void {
     console.log(`Tu zwrócił nam emit: ${value}`)
   }
 
-  doSomeAction() {
+  doSomeAction(): void {
     console.log('Tu możemy logike dodać do przycisku')
   }
 
+  // zrobiłem tutaj na szybko dodawanie randomowych stringów
   addChip() {
     const random: string[] = ['Cola', 'Pepsi', 'Banana'];
     this.chips.push(random[(Math.random() * random.length) | 0])
   }
 
+  // remove jest na podstawie stringa, dlatego jeżeli będą się powtarzać to kilka usuniemy
   removeElem(elem: string) {
     this.chips = this.chips.filter((name: string): boolean => name !== elem)
   }
 
-
-
+  // Dodatkowo drag and drop, którego może być użyty np do listy pracowników
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
   }
