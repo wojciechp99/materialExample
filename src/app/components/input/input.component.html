@@ -1,1 +1,33 @@
-<p>input works!</p>
+<div class="input form-elements" [formGroup]="parentFormGroup.form">
+  <label [attr.for]="fieldId" class="input__label">
+    {{ label }}<span *ngIf="isRequired">*</span>
+  </label>
+  <mat-form-field appearance="fill">
+    <div class="input__input-container">
+      <input
+        #inputField
+        (blur)="formControl.dirty ? leaveField.emit(formControl.value) : null"
+        [attr.maxlength]="maxLength"
+        [formControl]="formControl"
+        [id]="fieldId"
+        [placeholder]="placeholder"
+        [type]="type"
+        class="input__input-container-input-field"
+        matInput
+      />
+      <fa-icon
+        (click)="emitIconClicked()"
+        *ngIf="iconAction"
+        [icon]="iconAction"
+        [ngClass]="{ 'disabled-button': formControl.disabled }"
+        class="fa-icon input__input-container-icon"
+      ></fa-icon>
+    </div>
+    <mat-error *ngIf="formControl.hasError('required') && !formControl.untouched">
+      {{'Field required'}}
+    </mat-error>
+    <mat-hint class="input__limit-info" *ngIf="maxLength && maxLengthError()">
+      {{ 'Limit of ' + maxLength + ' characters reached' }}
+    </mat-hint>
+  </mat-form-field>
+</div>

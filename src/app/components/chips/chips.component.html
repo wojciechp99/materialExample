@@ -1,1 +1,8 @@
-<p>chips works!</p>
+<mat-chip class="chip" disableRipple>
+  <span>{{ text! }}</span
+  ><mat-icon
+  class="chip__cancel-icon"
+  (click)="this.remove.emit(text)"
+>cancel</mat-icon
+>
+</mat-chip>

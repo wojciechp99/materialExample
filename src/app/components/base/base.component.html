@@ -1,1 +1,61 @@
-<p>base works!</p>
+<mat-tab-group>
+  <mat-tab label="Form">
+    <div class="base">
+      <div [formGroup]="formGroup" class="form">
+        <app-input
+          [isRequired]="true"
+          [label]="'Name'"
+          [maxLength]="5"
+          [placeholder]="'name'"
+          controlName="name"
+          (leaveField)="emitSomething($event)"
+        ></app-input>
+        <app-input
+          [isRequired]="true"
+          [label]="'Lastname'"
+          [maxLength]="10"
+          controlName="lastname"
+          (leaveField)="emitSomething($event)"
+        ></app-input>
+        <app-input
+          [iconAction]="faLink"
+          (iconClicked)="doSomeAction()"
+          [isRequired]="false"
+          [label]="'Address'"
+          controlName="address"
+          (leaveField)="emitSomething($event)"
+        ></app-input>
+        <app-input
+          [iconAction]="faLink"
+          (iconClicked)="doSomeAction()"
+          [isRequired]="false"
+          [label]="'City'"
+          controlName="city"
+          (leaveField)="emitSomething($event)"
+        ></app-input>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Chips">
+    <div class="base">
+      @for (chip of chips; track chip) {
+        <app-chips
+          (remove)="removeElem($event)"
+          [filterName]="chip"
+          [text]="chip"
+        ></app-chips>
+      }
+      <button (click)="addChip()">add chip</button>
+    </div>
+  </mat-tab>
+  <mat-tab label="Drag and drop">
+    <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+      @for (movie of movies; track movie) {
+        <div class="example-box" cdkDrag>{{movie}}</div>
+      }
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+
+
