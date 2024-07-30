@@ -1,0 +1,39 @@
+
+$chip-padding: 0.35rem 0.5rem 0.35rem 1.2rem;
+$chip-margin: 0 0.8rem 0.3rem 0.8rem;
+$chip-cancel-icon-transform: scale(0.5);
+$chip-cancel-icon-margin-bottom: 0.05rem;
+
+.chip.mat-mdc-standard-chip {
+  background: #e7e7e7 !important;
+  border-radius: 1rem !important;
+  font-size: 1rem;
+  color: #272727 !important;
+  padding: $chip-padding !important;
+  height: 1.3rem;
+  line-height: normal;
+  display: inline-flex;
+  align-items: center;
+  margin: $chip-margin;
+
+  &:hover {
+    background: #c4c4c4 !important;
+  }
+  &:active {
+    background: #a6a6a6 !important;
+    box-shadow: 0 0.2rem 0.4rem rgba(0,0,0,0.25) !important;
+  }
+}
+
+.chip {
+  min-height: 0 !important;
+  box-sizing: content-box !important;
+  &__cancel-icon {
+    transform: scale(0.7);
+    color: #686868;
+    cursor: pointer;
+  }
+  &__cancel-icon:hover {
+    color: #494949;
+  }
+}
